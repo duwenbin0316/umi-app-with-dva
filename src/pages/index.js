@@ -20,6 +20,7 @@ const indexPage = function(props) {
       </ul>
       <div>{JSON.stringify(props.users)}</div>
       <Button type="primary" onClick={() => props.update('fsfs')}>update</Button>
+      <Button type="primary" onClick={() => props.fetch({ id: 12 })}>fetch</Button>
     </div>
   );
 }
@@ -33,6 +34,12 @@ const mapDispatchToProps = (dispatch) => {
     update(payload) {
       dispatch({
         type: 'users/update',
+        payload
+      })
+    },
+    fetch(payload) {
+      return dispatch({
+        type: 'users/fetch',
         payload
       })
     }
